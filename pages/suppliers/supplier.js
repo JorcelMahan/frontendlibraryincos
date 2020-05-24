@@ -37,7 +37,7 @@ const Supplier = () => {
     });
     useEffect(() => {
         async function getSupplier() {
-            const result = await axios.get(`http://localhost:7000/supplier/${id}`);
+            const result = await axios.get(`https://apilibraryjava.herokuapp.com/supplier/${id}`);
             setSupplier(result.data);
         }
 
@@ -46,7 +46,7 @@ const Supplier = () => {
     const updateSupplier = async values => {
         const {companyName, contactName, city, country, cellphone, email} = values;
         try {
-            await axios.put(`http://localhost:7000/supplier/${id}`, {
+            await axios.put(`https://apilibraryjava.herokuapp.com/supplier/${id}`, {
                 companyName, contactName, city, country, cellphone, email
             })
         } catch (e) {

@@ -8,21 +8,20 @@ import axios from "axios";
 const Provedores = () => {
     const [suppliers, setSuppliers] = useState([]);
     const deleteSupplier = async id => {
-        await axios.patch(`http://localhost:7000/supplier/${id}`);
+        await axios.patch(`https://apilibraryjava.herokuapp.com/supplier/${id}`);
     }
     useEffect(() => {
-        const abortController = new AbortController();
-
+        const source = axios.CancelToken.source();
         async function getSuppliers() {
-            const result = await axios.get('http://localhost:7000/supplier', {
-                signal: abortController.signal
+            const result = await axios.get('https://apilibraryjava.herokuapp.com/supplier', {
+                cancelToken: source.token
             });
             setSuppliers(result.data);
         }
 
         getSuppliers()
         return () => {
-            abortController.abort();
+            source.cancel();
         }
     }, [suppliers]);
     return (

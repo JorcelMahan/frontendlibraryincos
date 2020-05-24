@@ -39,7 +39,7 @@ const NewProduct = () => {
         onSubmit: async (values) => {
             const {productName, unitPrice, stock, supplierId} = values;
             try {
-                await axios.post('http://localhost:7000/products', {
+                await axios.post('https://apilibraryjava.herokuapp.com/products', {
                     productName,
                     supplierId,
                     unitPrice,
@@ -53,7 +53,7 @@ const NewProduct = () => {
     });
     useEffect(() => {
         async function getProvedores() {
-            const result = await axios.get('http://localhost:7000/supplier');
+            const result = await axios.get('https://apilibraryjava.herokuapp.com/supplier');
             setProvedores(result.data);
         }
 

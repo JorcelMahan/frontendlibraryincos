@@ -8,21 +8,20 @@ import Button from "@material-ui/core/Button";
 const Products = () => {
     const [products, setProducts] = useState([]);
     const deleteProduct = async id => {
-        await axios.patch(`http://localhost:7000/products/${id}`);
+        await axios.patch(`https://apilibraryjava.herokuapp.com/products/${id}`);
     }
     useEffect(() => {
-        const abortController = new AbortController();
-
+        const source = axios.CancelToken.source();
         async function getProducts() {
-            const result = await axios.get('http://localhost:7000/products', {
-                signal: abortController.signal
+            const result = await axios.get('https://apilibraryjava.herokuapp.com/products', {
+                cancelToken: source.token
             });
             setProducts(result.data)
         }
 
         getProducts();
         return () => {
-            abortController.abort();
+          source.cancel();
         }
     }, [products]);
     return (

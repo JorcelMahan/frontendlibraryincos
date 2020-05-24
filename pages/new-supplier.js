@@ -38,7 +38,7 @@ const NewSupplier = () => {
         onSubmit: async (values) => {
             const {companyName, contactName, city, country, cellphone, email} = values;
             try {
-                await axios.post('http://localhost:7000/supplier', {
+                await axios.post('https://apilibraryjava.herokuapp.com/supplier', {
                     companyName,
                     contactName,
                     city,

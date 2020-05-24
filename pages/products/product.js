@@ -42,7 +42,7 @@ const EditProduct = () => {
     });
     useEffect(() => {
         async function getProduct() {
-            const result = await axios.get(`http://localhost:7000/products/${id}`);
+            const result = await axios.get(`https://apilibraryjava.herokuapp.com/products/${id}`);
             setProduct(result.data);
         }
 
@@ -51,7 +51,7 @@ const EditProduct = () => {
     const [provedores, setProvedores] = useState([]);
     useEffect(() => {
         async function getProvedores() {
-            const result = await axios.get('http://localhost:7000/supplier');
+            const result = await axios.get('https://apilibraryjava.herokuapp.com/supplier');
             setProvedores(result.data);
         }
 
@@ -61,7 +61,7 @@ const EditProduct = () => {
     const updateProduct = async (values) => {
         const {productName, stock, supplierId, unitPrice, id} = values;
         try {
-            await axios.put(`http://localhost:7000/products/${id}`, {
+            await axios.put(`https://apilibraryjava.herokuapp.com/products/${id}`, {
                 productName,
                 stock,
                 supplierId,
