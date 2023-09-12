@@ -2,4 +2,4 @@
 
 ## Incos Project Fronted
 
-En este repisotorio contiene el fronted desarrollo en react para el proyecto library java para el instituto Incos La Paz
+Frontend desarrollado en React para el proyecto de biblioteca Java del Instituto Incos La Paz
